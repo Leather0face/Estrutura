@@ -1,0 +1,16 @@
+class Reta:
+    def __init__(self, ponto1, ponto2):
+        self.ponto1 = ponto1
+        self.ponto2 = ponto2
+
+    def calcular_coeficiente_angular(self):
+        x1, y1 = self.ponto1
+        x2, y2 = self.ponto2
+        return (y2 - y1) / (x2 - x1)
+
+# Exemplo de uso
+ponto1 = (1, 2)
+ponto2 = (3, 4)
+reta = Reta(ponto1, ponto2)
+coeficiente_angular = reta.calcular_coeficiente_angular()
+print(f"Coeficiente Angular: {coeficiente_angular}")
