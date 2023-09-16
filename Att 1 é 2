@@ -1,0 +1,69 @@
+class Agenda:
+    def __init__(self):
+        self.contatos = {}
+        self.historico = []
+        
+    def adicionar_contato(self, nome, telefone):
+        self.contatos[nome] = telefone
+        self.historico.append(f"Adicionado contato {nome} com telefone {telefone}")
+        print(f"Contato {nome} adicionado com sucesso!")
+        
+    def remover_contato(self, nome):
+        if nome in self.contatos:
+            telefone = self.contatos[nome]
+            del self.contatos[nome]
+            self.historico.append(f"Removido contato {nome} com telefone {telefone}")
+            print(f"Contato {nome} removido com sucesso!")
+        else:
+            print("Contato não encontrado!")
+            
+    def mostrar_contatos(self):
+        print("Lista de Contatos:")
+        for nome, telefone in self.contatos.items():
+            print(f"Nome: {nome} | Telefone: {telefone}")
+            
+    def buscar_contato(self, nome):
+        if nome in self.contatos:
+            print(f"Nome: {nome} | Telefone: {self.contatos[nome]}")
+        else:
+            print("Contato não encontrado!")
+            
+    def mostrar_historico(self):
+        print("Histórico:")
+        for operacao in self.historico:
+            print(operacao)
+
+
+agenda = Agenda()
+
+while True:
+    print("\n-------- MENU --------")
+    print("1. Adicionar Contato")
+    print("2. Remover Contato")
+    print("3. Mostrar Contatos")
+    print("4. Buscar Contato")
+    print("5. Mostrar Histórico")
+    print("0. Sair")
+
+    opcao = input("Escolha uma opção: ")
+
+    if opcao == "1":
+        nome = input("Digite o nome do contato: ")
+        telefone = input("Digite o telefone do contato: ")
+        agenda.adicionar_contato(nome, telefone)
+    elif opcao == "2":
+        nome = input("Digite o nome do contato que deseja remover: ")
+        agenda.remover_contato(nome)
+    elif opcao == "3":
+        agenda.mostrar_contatos()
+    elif opcao == "4":
+        nome = input("Digite o nome do contato que deseja buscar: ")
+        agenda.buscar_contato(nome)
+    elif opcao == "5":
+        agenda.mostrar_historico()
+    elif opcao == "0":
+        print("Encerrando o programa...")
+        break
+    else:
+        print("Opção inválida!")
+``
