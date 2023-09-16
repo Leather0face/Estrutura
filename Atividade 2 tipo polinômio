@@ -1,0 +1,29 @@
+class PolinomioGrau2:
+    def __init__(self, a, b, c):
+        self.a = a
+        self.b = b
+        self.c = c
+
+    def calcular_valor(self, x):
+        return self.a*(x**2) + self.b*x + self.c
+
+    def calcular_raizes(self):
+        delta = self.b**2 - (4 * self.a * self.c)
+
+        if delta < 0:
+            return "Não possui raízes reais"
+        elif delta == 0:
+            x = -self.b / (2 * self.a)
+            return f"Raiz dupla: {x}"
+        else:
+            x1 = (-self.b + delta**0.5) / (2 * self.a)
+            x2 = (-self.b - delta**0.5) / (2 * self.a)
+            return f"Raízes: {x1} e {x2}"
+
+# Exemplo de uso
+a = 1
+b = -2
+c = -3
+polinomio = PolinomioGrau2(a, b, c)
+print(f"Valor para x = 2: {polinomio.calcular_valor(2)}")
+print(polinomio.calcular_raizes())
