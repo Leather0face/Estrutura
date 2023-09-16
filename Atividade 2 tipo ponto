@@ -1,0 +1,18 @@
+class Ponto:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def get_coordenadas(self):
+        return (self.x, self.y)
+
+    def set_coordenadas(self, x, y):
+        self.x = x
+        self.y = y
+
+# Exemplo de uso
+ponto = Ponto(2, 3)
+print(ponto.get_coordenadas())  # Output: (2, 3)
+
+ponto.set_coordenadas(4, 5)
+print(ponto.get_coordenadas())  # Output: (4, 5)
